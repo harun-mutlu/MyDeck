@@ -4,6 +4,8 @@ MyDeck turns an Android tablet into a control panel for your Windows PC. You put
 
 The tablet and the PC talk over your local network. Nothing goes through the internet.
 
+![The MyDeck editor with the sample deck](docs/editor.png)
+
 ## What you need
 
 - A 64-bit Windows 10 (version 2004 or newer) or Windows 11 PC
@@ -22,6 +24,8 @@ If the tablet can't find the PC (some routers block broadcast traffic), long-pre
 ## Editing the deck
 
 Click **Open editor** in the main window. Drag tiles around, pick an action on the right, and changes reach the tablet as soon as you save. The **Virtual deck** window shows the same deck on the PC, and you can use every tile there too.
+
+![The virtual deck window](docs/virtual-deck.png)
 
 Tile types:
 
