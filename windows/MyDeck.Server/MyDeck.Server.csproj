@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- Windows 10 2004+ API'leri (çalan şarkı / medya denetimleri) için -->
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>MyDeck</AssemblyName>
+    <RootNamespace>MyDeck.Server</RootNamespace>
+    <Version>1.0.0</Version>
+    <Product>MyDeck</Product>
+    <ApplicationIcon>MyDeck.ico</ApplicationIcon>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <SatelliteResourceLanguages>tr;en</SatelliteResourceLanguages>
+    <!-- Tasarımcı kullanılmıyor; kontrol özelliklerinin serileştirme uyarısı gereksiz -->
+    <NoWarn>$(NoWarn);WFO1000</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="MyDeck.Server.Core.L" Static="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="MyDeck.ico" LogicalName="MyDeck.ico" />
+    <EmbeddedResource Include="../../android/deck/src/main/assets/weather-art.png" LogicalName="weather-art.png" />
+  </ItemGroup>
+
+</Project>

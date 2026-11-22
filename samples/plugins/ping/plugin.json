@@ -1,0 +1,18 @@
+{
+  "id": "ping",
+  "name": "Ping",
+  "description": "Shows the round-trip time to an address. Green is good, yellow is slow, red means no answer.",
+  "version": "1.0",
+  "data": [
+    {
+      "id": "ping",
+      "name": "Ping",
+      "description": "Round-trip time to the address.",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File ping.ps1 \"{address}\"",
+      "seconds": 5,
+      "fields": [
+        { "id": "address", "name": "Address", "default": "1.1.1.1", "hint": "e.g. 1.1.1.1 or google.com" }
+      ]
+    }
+  ]
+}

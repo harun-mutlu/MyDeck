@@ -1,0 +1,14 @@
+{
+  "id": "screen-off",
+  "name": "Screen off",
+  "description": "Turns the monitor off. Move the mouse or press a key to turn it back on.",
+  "version": "1.0",
+  "actions": [
+    {
+      "id": "off",
+      "name": "Turn the screen off",
+      "description": "Puts the monitor to sleep. The PC keeps running.",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File screen-off.ps1"
+    }
+  ]
+}
