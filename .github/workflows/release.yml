@@ -3,6 +3,7 @@ name: Release
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -25,6 +26,7 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Check the tag matches the app version
+        if: github.ref_type == 'tag'
         shell: pwsh
         run: |
           . ./scripts/env.ps1
@@ -58,7 +60,19 @@ jobs:
           $out
           if (-not ($out -match "SHA-256 digest: $env:SIGNER_SHA256")) { throw 'The APK is not signed with the MyDeck release key' }
 
+      - name: Keep the test build
+        if: github.ref_type != 'tag'
+        uses: actions/upload-artifact@v4
+        with:
+          name: MyDeck-test-build
+          path: |
+            dist/MyDeck-win-x64.zip
+            dist/MyDeck-win-x64.zip.sha256
+            dist/*.mydeckplugin
+          retention-days: 7
+
       - name: Publish the release
+        if: github.ref_type == 'tag'
         uses: softprops/action-gh-release@v2
         with:
           files: |
