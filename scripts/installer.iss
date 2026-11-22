@@ -56,15 +56,24 @@ Name: "{autodesktop}\MyDeck"; Filename: "{app}\MyDeck.exe"; Tasks: desktopicon
 [Run]
 Filename: "{app}\MyDeck.exe"; Description: "{cm:LaunchProgram,MyDeck}"; Flags: nowait postinstall skipifsilent
 
-[UninstallRun]
-Filename: "{sys}\taskkill.exe"; Parameters: "/IM MyDeck.exe /F"; Flags: runhidden; RunOnceId: "StopMyDeck"
-
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}"
 
 [Code]
+const
+  RunKey = 'Software\Microsoft\Windows\CurrentVersion\Run';
+
 procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+var
+  Exe, Value: String;
+  Code: Integer;
 begin
+  Exe := ExpandConstant('{app}\MyDeck.exe');
+  if CurUninstallStep = usUninstall then
+    Exec(ExpandConstant('{sys}\WindowsPowerShell\v1.0\powershell.exe'),
+      '-NoProfile -ExecutionPolicy Bypass -Command "Get-Process MyDeck -ErrorAction SilentlyContinue | Where-Object { $_.Path -eq ''' + Exe + ''' } | Stop-Process -Force"',
+      '', SW_HIDE, ewWaitUntilTerminated, Code);
   if CurUninstallStep = usPostUninstall then
-    RegDeleteValue(HKEY_CURRENT_USER, 'Software\Microsoft\Windows\CurrentVersion\Run', 'MyDeck');
+    if RegQueryStringValue(HKEY_CURRENT_USER, RunKey, 'MyDeck', Value) and (Pos(Lowercase(Exe), Lowercase(Value)) > 0) then
+      RegDeleteValue(HKEY_CURRENT_USER, RunKey, 'MyDeck');
 end;

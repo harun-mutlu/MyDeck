@@ -20,7 +20,7 @@ $zip = Join-Path $dist 'MyDeck-win-x64.zip'
 Remove-Item $zip -Force -ErrorAction SilentlyContinue
 Compress-Archive -Path (Join-Path $stage '*') -DestinationPath $zip -CompressionLevel Optimal
 $hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
-Set-Content -Path "$zip.sha256" -Value "$hash  MyDeck-win-x64.zip" -Encoding ascii
+[IO.File]::WriteAllText("$zip.sha256", "$hash  MyDeck-win-x64.zip`n", [Text.Encoding]::ASCII)
 
 $iscc = @("${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe", "$env:ProgramFiles\Inno Setup 6\ISCC.exe", "$env:LOCALAPPDATA\Programs\Inno Setup 6\ISCC.exe") |
     Where-Object { Test-Path $_ } | Select-Object -First 1

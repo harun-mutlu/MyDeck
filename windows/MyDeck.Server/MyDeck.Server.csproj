@@ -11,6 +11,7 @@
     <AssemblyName>MyDeck</AssemblyName>
     <RootNamespace>MyDeck.Server</RootNamespace>
     <Version>1.0.0</Version>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Product>MyDeck</Product>
     <ApplicationIcon>MyDeck.ico</ApplicationIcon>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
