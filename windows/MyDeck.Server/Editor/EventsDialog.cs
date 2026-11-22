@@ -166,7 +166,7 @@ sealed class EventsDialog : DarkForm
         _argCaption.Visible = _arg.Visible = needs;
         _pickApp.Visible = e.When is "app" or "appleave" or "var";
         _argCaption.Text = e.When switch { "var" => T("VARIABLE"), "time" => T("TIME (HH:MM, E.G. 08:30)"), _ => T("APP (PROCESS NAME)") };
-        _arg.PlaceholderText = e.When switch { "var" => "sayac", "time" => "08:30", _ => "photoshop" };
+        _arg.PlaceholderText = e.When switch { "var" => T("counter"), "time" => "08:30", _ => "photoshop" };
         _do.Text = T("What it does… ({0} steps)", e.Do?.Steps?.Count ?? (e.Do is null ? 0 : 1));
     }
 

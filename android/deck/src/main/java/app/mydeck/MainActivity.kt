@@ -319,7 +319,7 @@ class MainActivity : Activity(), Connection.Listener, DeckView.Listener {
             } else {
                 val sub = when (state) {
                     Connection.State.SEARCHING -> I18n.t("Make sure MyDeck is open on your computer and on the same Wi-Fi. Long-press to enter its address.")
-                    Connection.State.DENIED -> "10 saniye sonra yeniden denenecek"
+                    Connection.State.DENIED -> I18n.t("Retrying in 10 seconds")
                     else -> detail
                 }
                 text(c, sub, 13f, Color.parseColor("#8D97AB"), r.top + 134 * d)

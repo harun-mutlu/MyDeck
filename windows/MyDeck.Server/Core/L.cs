@@ -16,6 +16,8 @@ public static class L
         Culture = CultureInfo.GetCultureInfo(Turkish ? "tr-TR" : "en-US");
         CultureInfo.CurrentUICulture = Culture;
         CultureInfo.DefaultThreadCurrentUICulture = Culture;
+        CultureInfo.CurrentCulture = Culture;
+        CultureInfo.DefaultThreadCurrentCulture = Culture;
     }
 
     public static string T(string en) =>

@@ -38,5 +38,6 @@ object Turkish {
         "updated {0}" to "güncellendi {0}",
         "Feels like {0}  ·  Humidity {1}%  ·  Wind {2} km/h" to "Hissedilen {0}  ·  Nem %{1}  ·  Rüzgâr {2} km/s",
         "Tomorrow" to "Yarın",
+        "Retrying in 10 seconds" to "10 saniye sonra yeniden denenecek",
     )
 }

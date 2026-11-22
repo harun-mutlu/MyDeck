@@ -14,7 +14,7 @@ static class ActionText
 
     public static readonly (string Key, string Name)[] MediaKeys =
     {
-        ("playpause", "Oynat / Duraklat"), ("next", T("Next")), ("prev", T("Previous")), ("stop", T("Stop")),
+        ("playpause", T("Play / Pause")), ("next", T("Next")), ("prev", T("Previous")), ("stop", T("Stop")),
         ("volup", T("Volume +")), ("voldown", T("Volume −")), ("mute", T("Mute")),
     };
 

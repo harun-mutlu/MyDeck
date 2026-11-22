@@ -60,7 +60,7 @@ public static class DefaultProfile
                 On = new TileVariant { Label = T("Stop recording"), Sub = "F14", Icon = "glyph:E71A", Color = "#FF3D5A", Action = new TileAction { Type = "keys", Keys = "f14" } },
             },
             new Tile { Id = "ses-ana-yatay", Kind = "slider", Target = "master", X = 3, Y = 1, W = 3, Label = T("Main volume (horizontal)") },
-            new Tile { Id = "ses-zen", Kind = "slider", Target = "app:zen", X = 3, Y = 2, W = 3, Label = T("Zen browser"), Color = "#4ADE80" },
+            new Tile { Id = "ses-spotify", Kind = "slider", Target = "app:Spotify", X = 3, Y = 2, W = 3, Label = "Spotify", Color = "#4ADE80" },
         }
     };
 
@@ -71,7 +71,7 @@ public static class DefaultProfile
             Id = "ana", Name = T("Main"), Cols = 5, Rows = 3,
             Tiles =
             {
-                Make(0, 0, "Oynat / Duraklat", "E768", Media("playpause"), color: "#FF3D5A"),
+                Make(0, 0, T("Play / Pause"), "E768", Media("playpause"), color: "#FF3D5A"),
                 Make(1, 0, T("Previous"), "E892", Media("prev")),
                 Make(2, 0, T("Next"), "E893", Media("next")),
                 Make(3, 0, T("Volume −"), "E993", Media("voldown")),

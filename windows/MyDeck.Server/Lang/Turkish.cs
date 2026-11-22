@@ -75,7 +75,6 @@ static partial class Lang_tr
         ["Start recording"] = "Kaydı başlat",
         ["Stop recording"] = "Kaydı durdur",
         ["Main volume (horizontal)"] = "Ana ses (yatay)",
-        ["Zen browser"] = "Zen tarayıcı",
         ["Previous"] = "Önceki",
         ["Volume −"] = "Ses −",
         ["Volume +"] = "Ses +",
@@ -725,5 +724,14 @@ static partial class Lang_tr
         ["Download MyDeck"] = "MyDeck'i indir",
         ["When the download finishes, tap the file in the notification."] = "İndirme bitince bildirimden dosyaya dokun.",
         ["Install → Open."] = "Yükle → Aç.",
+        ["Play / Pause"] = "Oynat / Duraklat",
+        ["square tiles"] = "kare kartlar",
+        ["fill"] = "doldur",
+        ["square"] = "kare",
+        ["ratio 1 : {0:0.00}"] = "oran 1 : {0:0.00}",
+        ["30 seconds"] = "30 saniye",
+        ["1 minute"] = "1 dakika",
+        ["5 minutes"] = "5 dakika",
+        ["counter"] = "sayac",
     };
 }

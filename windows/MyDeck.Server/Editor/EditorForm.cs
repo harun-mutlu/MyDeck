@@ -127,7 +127,7 @@ sealed class EditorForm : DarkForm
     };
 
     static readonly (string Key, string Name)[] Styles = { ("area", T("Area")), ("line", T("Line")), ("bars", T("Bars")) };
-    static readonly (int Sec, string Name)[] Durations = { (30, "30 saniye"), (60, "1 dakika"), (300, "5 dakika") };
+    static readonly (int Sec, string Name)[] Durations = { (30, T("30 seconds")), (60, T("1 minute")), (300, T("5 minutes")) };
     static readonly (string Key, string Name)[] ColorModes = { ("card", T("Tile color")), ("load", T("By load (green → yellow → red)")) };
 
     sealed record MetricItem(string? Key, string Name)
@@ -142,7 +142,7 @@ sealed class EditorForm : DarkForm
 
     static readonly (string Key, string Name)[] MediaKeys =
     {
-        ("playpause", "Oynat / Duraklat"), ("next", T("Next")), ("prev", T("Previous")), ("stop", T("Stop")),
+        ("playpause", T("Play / Pause")), ("next", T("Next")), ("prev", T("Previous")), ("stop", T("Stop")),
         ("volup", T("Volume +")), ("voldown", T("Volume −")), ("mute", T("Mute")),
     };
 
@@ -1079,7 +1079,7 @@ sealed class EditorForm : DarkForm
         if (_page is null) return;
         _pageTitle.Text = string.IsNullOrWhiteSpace(_page.Name) ? _page.Id : _page.Name;
         var dev = _server.LastDeviceSize;
-        var shape = _page.Shape == "square" ? "kare kartlar" : "doldur";
+        var shape = _page.Shape == "square" ? T("square tiles") : T("fill");
         _pageSub.Text = T("{0} tiles  ·  {1} × {2}  ·  {3}  ·  full screen {4} × {5}", _page.Tiles.Count, _page.Cols, _page.Rows, shape, dev.Width, dev.Height) +
                         (_page.Folder ? T("  ·  folder") : _page.Id == _profile.Start ? T("  ·  start page") : "");
     }
@@ -1591,7 +1591,7 @@ sealed class EditorForm : DarkForm
         if (_page is null) return;
         var dev = _server.LastDeviceSize;
         var g = Grid.Layout(dev.Width, dev.Height, _page, _profile.Theme);
-        var shape = Math.Abs(g.Cw - g.Ch) < 0.5f ? "kare" : $"oran 1 : {g.Ch / g.Cw:0.00}";
+        var shape = Math.Abs(g.Cw - g.Ch) < 0.5f ? T("square") : T("ratio 1 : {0:0.00}", g.Ch / g.Cw);
         _gridInfo.Text = T("One tile {0:0} × {1:0} px · {2}\nFull-screen grid ({3}×{4})", g.Cw, g.Ch, shape, dev.Width, dev.Height);
     }
 
