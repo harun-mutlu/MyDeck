@@ -85,6 +85,7 @@ jobs:
             dist/MyDeck-win-x64.zip.sha256
             dist/MyDeck-Setup.exe
             dist/*.mydeckplugin
+          name: MyDeck ${{ github.ref_name }}
           body_path: .github/release-notes.md
           make_latest: true
 
