@@ -1,3 +1,4 @@
+#pragma warning disable CS8602, CS8604
 using System.Text.Json;
 using MyDeck.Server.Core;
 

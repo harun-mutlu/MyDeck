@@ -584,7 +584,7 @@ static class MediaPreview
                 var barY = r.Bottom - (times ? 26 : 12);
                 var size = Math.Min(29, r.Height * 0.18f);
                 var cy = barY - size - 18;
-                Text(g, st.Title, x0, r.Top + 20, 16, ink, true, iw);
+                Text(g, st!.Title, x0, r.Top + 20, 16, ink, true, iw);
                 if (!ctl || cy - size >= r.Top + 42)
                     Text(g, st.Artist, x0, r.Top + 38, 12.5f, sub, false, iw);
                 if (ctl) Controls(g, (ar.Right + r.Right) / 2, cy, size,

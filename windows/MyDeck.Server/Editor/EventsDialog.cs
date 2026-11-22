@@ -4,7 +4,7 @@ namespace MyDeck.Server.Editor;
 
 sealed class EventsDialog : DarkForm
 {
-    public List<DeckEvent> Events { get; }
+    public new List<DeckEvent> Events { get; }
     public Dictionary<string, string> Vars { get; }
 
     readonly DeckServer _server;

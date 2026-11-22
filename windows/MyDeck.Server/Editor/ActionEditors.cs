@@ -141,7 +141,7 @@ sealed class StepsDialog : DarkForm
         if (select >= 0 && select < Result.Count) _list.SelectedIndex = select;
     }
 
-    void Move(int d)
+    new void Move(int d)
     {
         if (Sel() is not { } i || i + d < 0 || i + d >= Result.Count) return;
         (Result[i], Result[i + d]) = (Result[i + d], Result[i]);

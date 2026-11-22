@@ -13,11 +13,11 @@ The tablet and the PC talk over your local network. Nothing goes through the int
 ## Install
 
 1. Download `MyDeck-win-x64.zip` from the [latest release](https://github.com/harun-mutlu/MyDeck/releases/latest) and unzip it anywhere.
-2. Run `MyDeck.exe`. Windows Firewall will ask about network access; allow it on private networks.
+2. Run `MyDeck.exe`. The app isn't code-signed, so Windows may show "Windows protected your PC" the first time. Click **More info** and then **Run anyway**. Windows Firewall will then ask about network access; allow it on private networks.
 3. On the tablet, open the browser and go to the address shown in the MyDeck window. Download and install the APK. Android may ask you to allow installs from the browser.
 4. Open MyDeck on the tablet. It finds the PC by itself. The first time, both screens show a code; accept the connection on the PC if the codes match.
 
-If the tablet can't find the PC (some routers block broadcast traffic), long-press the status text on the tablet and type the PC's address by hand.
+If the tablet can't find the PC (some routers block broadcast traffic), long-press the status screen on the tablet and type the PC's address by hand.
 
 ## Editing the deck
 
@@ -65,7 +65,7 @@ Plugins made for other deck apps don't work in MyDeck.
 
 ## Updates
 
-The PC app checks GitHub for a new release every few hours and can install it by itself (you can turn that off in Settings). When the PC app has a newer tablet app inside, the tablet shows an update bar.
+The PC app checks GitHub for a new release when it starts and every six hours after that. A new version is downloaded and installed by itself while MyDeck sits in the tray, or you can click the update button in the main window. You can turn automatic updates off in Settings. When the PC app has a newer tablet app inside, the tablet shows an update bar.
 
 ## Where things are stored
 
@@ -85,7 +85,7 @@ A build made this way uses the Android debug key, so its APK can't update a tabl
 
 `scripts\install-apk.ps1` installs the APK over USB if you'd rather not use the browser.
 
-Ports: UDP 47800 for discovery, TCP 47801 for the connection and the APK download page.
+Ports: UDP 47800 for discovery, TCP 47801 for the connection, TCP 47802 for the APK download page.
 
 ## Feedback
 
