@@ -52,9 +52,12 @@ public sealed class MediaWatcher : IDisposable
     public event Action<string>? Warn;
     string? _lastError;
 
+    readonly Dictionary<string, int> _fails = new();
+
     void Report(string where, Exception ex)
     {
-        var m = $"{where}: {ex.GetType().Name}: {ex.Message}";
+        var msg = string.IsNullOrWhiteSpace(ex.Message) ? $"0x{ex.HResult:X8}" : ex.Message.Trim();
+        var m = $"{where}: {ex.GetType().Name}: {msg}";
         if (m == _lastError) return;
         _lastError = m;
         Warn?.Invoke(m);
@@ -84,11 +87,17 @@ public sealed class MediaWatcher : IDisposable
                 MediaState? old;
                 lock (_lock) old = _states.GetValueOrDefault(key);
                 var now = await Read(key, s, old);
+                _fails.Remove(key);
                 if (now is null) continue;
                 lock (_lock) _states[key] = now;
                 Changed?.Invoke(now);
             }
-            catch (Exception ex) { Report(T("Couldn't read media ({0})", key.Length > 0 ? key : T("automatic")), ex); }
+            catch (Exception ex)
+            {
+                // A session that is closing or changing tracks often fails one read; only warn when it keeps failing.
+                var n = _fails[key] = _fails.GetValueOrDefault(key) + 1;
+                if (n == 3) Report(T("Couldn't read media ({0})", key.Length > 0 ? key : T("automatic")), ex);
+            }
         }
     }
 
