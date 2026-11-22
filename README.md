@@ -6,14 +6,14 @@ The tablet and the PC talk over your local network. Nothing goes through the int
 
 ## What you need
 
-- A Windows 10 or 11 PC (64-bit)
+- A 64-bit Windows 10 (version 2004 or newer) or Windows 11 PC
 - An Android tablet or phone running Android 5.1 or newer
 - Both on the same Wi-Fi or local network
 
 ## Install
 
-1. Download `MyDeck-win-x64.zip` from the [latest release](https://github.com/harun-mutlu/MyDeck/releases/latest) and unzip it anywhere.
-2. Run `MyDeck.exe`. The app isn't code-signed, so Windows may show "Windows protected your PC" the first time. Click **More info** and then **Run anyway**. Windows Firewall will then ask about network access; allow it on private networks.
+1. Download `MyDeck-Setup.exe` from the [latest release](https://github.com/harun-mutlu/MyDeck/releases/latest) and run it. It installs for your user only and doesn't need admin rights. If you'd rather not install anything, download `MyDeck-win-x64.zip` instead, unzip it anywhere and run `MyDeck.exe`.
+2. The app isn't code-signed, so Windows may show "Windows protected your PC" the first time. Click **More info** and then **Run anyway**. Windows Firewall will then ask about network access; allow it on private networks.
 3. On the tablet, open the browser and go to the address shown in the MyDeck window. Download and install the APK. Android may ask you to allow installs from the browser.
 4. Open MyDeck on the tablet. It finds the PC by itself. The first time, both screens show a code; accept the connection on the PC if the codes match.
 
@@ -69,7 +69,7 @@ The PC app checks GitHub for a new release when it starts and every six hours af
 
 ## Where things are stored
 
-Settings, the profile and backups are in `%APPDATA%\MyDeck`. **Settings → Open data folder** takes you there.
+Settings, the profile and backups are in `%APPDATA%\MyDeck`. **Settings → Open data folder** takes you there. Uninstalling MyDeck from Windows Settings leaves this folder alone, so a reinstall picks up where you left off.
 
 ## Building from source
 

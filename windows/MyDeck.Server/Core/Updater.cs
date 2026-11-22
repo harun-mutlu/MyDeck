@@ -145,7 +145,15 @@ public sealed class Updater
             if (Directory.Exists(temp)) Directory.Delete(temp, true);
         }
         catch { }
+        try
+        {
+            using var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(UninstallKey, writable: true);
+            if (key is not null && key.GetValue("DisplayVersion") as string != CurrentText) key.SetValue("DisplayVersion", CurrentText);
+        }
+        catch { }
     }
+
+    const string UninstallKey = @"Software\Microsoft\Windows\CurrentVersion\Uninstall\{8F3C2A61-5D47-4B9E-A0C3-6E1D9B7F4A25}_is1";
 
     static Version Normalize(Version v) => new(v.Major, Math.Max(0, v.Minor), Math.Max(0, v.Build));
 }

@@ -4,12 +4,12 @@ MyDeck turns an Android tablet into a touch control panel for your Windows PC. T
 
 ## Install
 
-1. Download `MyDeck-win-x64.zip` below and unzip it anywhere.
-2. Run `MyDeck.exe`. The app isn't code-signed, so Windows may say "Windows protected your PC". Click **More info**, then **Run anyway**.
+1. Download `MyDeck-Setup.exe` below and run it. No admin rights needed. Prefer a portable copy? Take `MyDeck-win-x64.zip`, unzip it anywhere and run `MyDeck.exe`.
+2. The app isn't code-signed, so Windows may say "Windows protected your PC". Click **More info**, then **Run anyway**.
 3. On the tablet, open the address shown in the MyDeck window and install the app.
 4. Open MyDeck on the tablet and accept the connection on the PC if the codes match.
 
-Needs Windows 10 or 11 (64-bit) and Android 5.1 or newer. Nothing else to install.
+Needs 64-bit Windows 10 (version 2004 or newer) or Windows 11 and Android 5.1 or newer. Nothing else to install.
 
 ## What's in it
 
